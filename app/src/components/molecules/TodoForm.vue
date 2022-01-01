@@ -1,19 +1,19 @@
 <template>
-  <div class="form">
+  <form class="form" novalidate>
     <TodoInput />
-    <AddInput />
-  </div>
+    <AddButton />
+  </form>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import TodoInput from "../atoms/TodoInput.vue"
-import AddInput from "../atoms/AddInput.vue"
+import AddButton from "../atoms/AddButton.vue"
 
 export default defineComponent({
   components: {
     TodoInput,
-    AddInput
+    AddButton
   }
 })
 </script>

@@ -15,15 +15,14 @@
         :key="index"
         :tab="tab"
         :index="index"
-        :tasks="tasks"
       />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
-import {Tab, ITabElement, ITask} from "../../types/types";
+import {defineComponent} from "vue";
+import {Tab, ITabElement} from "../../types/types";
 import StatusTab from "../atoms/StatusTab.vue";
 import TodoTabPanel from "./TodoTabPanel.vue";
 
@@ -31,11 +30,6 @@ export default defineComponent({
   components: {
     TodoTabPanel,
     StatusTab
-  },
-  props: {
-    tasks: {
-      type: Object as PropType<ITask[]>
-    }
   },
   data() {
     const elements: Tab[] = ['All', 'Active', 'Completed']

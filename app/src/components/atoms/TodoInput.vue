@@ -1,5 +1,10 @@
 <template>
-  <input type="text" placeholder="add details" class="input--todo" />
+  <input
+      type="text"
+      name="title"
+      placeholder="add details"
+      class="input--todo"
+  />
 </template>
 
 <style scoped>

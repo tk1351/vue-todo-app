@@ -5,9 +5,9 @@
     role="tabpanel"
     class="tabpanel"
   >
-    <AllPanel v-if="checkSelectedTab('All')" :tasks="tasks" />
-    <ActivePanel v-if="checkSelectedTab('Active')" :tasks="tasks" />
-    <CompletedPanel v-if="checkSelectedTab('Completed')" />
+    <AllPanel v-if="checkSelectedTab('All')" :tasks="allTasks" />
+    <ActivePanel v-if="checkSelectedTab('Active')" :tasks="activeTasks" />
+    <CompletedPanel v-if="checkSelectedTab('Completed')" :tasks="completedTasks" />
   </div>
 </template>
 
@@ -17,8 +17,19 @@ import {ITabElement, ITask, Tab} from "../../types/types";
 import AllPanel from "./AllPanel.vue";
 import ActivePanel from "./ActivePanel.vue";
 import CompletedPanel from "./CompletedPanel.vue";
+import {useTaskStore} from "../../store";
+import {storeToRefs} from "pinia";
 
 export default defineComponent({
+  setup() {
+    const taskStore = useTaskStore()
+    const { allTasks, activeTasks, completedTasks } = storeToRefs(taskStore)
+    return {
+      allTasks,
+      activeTasks,
+      completedTasks
+    }
+  },
   components: {
     CompletedPanel,
     ActivePanel,

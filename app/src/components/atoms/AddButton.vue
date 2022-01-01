@@ -1,9 +1,9 @@
 <template>
-  <input type="submit" value="Add" class="input--add" />
+  <button class="button--add" type="submit">Add</button>
 </template>
 
 <style scoped>
-.input--add {
+.button--add {
   width: 20%;
   border-radius: 15px;
   border: solid 1px dodgerblue;
