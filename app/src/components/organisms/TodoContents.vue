@@ -1,14 +1,6 @@
 <template>
   <div class="contents-wrapper">
-    <TodoTabs />
-    <TodoForm />
-    <ul class="todo-list-wrapper">
-      <TodoList
-          v-for="task in tasks"
-          :key="task.id"
-          :task="task"
-      />
-    </ul>
+    <TodoTabs :tasks="tasks" />
   </div>
 </template>
 
@@ -54,10 +46,5 @@ export default defineComponent({
   min-height: calc(100vh - 20vh);
   background-color: cadetblue;
   margin: 0 25%;
-}
-
-.todo-list-wrapper {
-  margin: 0;
-  padding-left: 0;
 }
 </style>

@@ -43,15 +43,12 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
 .tab {
   width: 100px;
-  height: 100%;
-  background-color: yellow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: none;
+  background-color: #fff;
+  font-weight: bold;
   cursor: pointer;
 }
 
