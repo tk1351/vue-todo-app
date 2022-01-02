@@ -1,6 +1,7 @@
 <template>
   <input
       type="checkbox"
+      class="checkbox"
       v-bind:checked="checkCompleted()"
       v-on:change="toggleTaskStatus(task.id)"
   />
@@ -24,7 +25,7 @@ export default defineComponent({
   },
   methods: {
     checkCompleted() {
-      return this.task.done === false
+      return this.task.done === true
     },
     toggleTaskStatus(id: number) {
       this.taskStore.toggleTaskStatus(id)
@@ -32,3 +33,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.checkbox {
+  cursor: pointer;
+}
+</style>

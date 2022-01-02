@@ -13,10 +13,10 @@ export const useTaskStore = defineStore('todo', {
             return state.tasks
         },
         activeTasks(state) {
-            return state.tasks.filter((task) => task.done === true)
+            return state.tasks.filter((task) => task.done === false)
         },
         completedTasks(state) {
-            return state. tasks.filter((task) => task.done === false)
+            return state. tasks.filter((task) => task.done === true)
         },
         findTodo(state) {
             return (id: number): ITask => {
@@ -31,13 +31,18 @@ export const useTaskStore = defineStore('todo', {
             this.tasks.push({
                 id: this.nextId,
                 title,
-                done: true
+                done: false
             })
             this.nextId++
         },
         toggleTaskStatus(id: number) {
             const todo = this.findTodo(id)
             todo.done = !todo.done
+        },
+        removeTask(id: number) {
+            this.tasks = this.tasks.filter((task) => {
+                return task.id !== id
+            })
         }
     }
 })

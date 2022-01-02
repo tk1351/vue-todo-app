@@ -29,5 +29,6 @@ export default defineComponent({
   background-color: yellowgreen;
   list-style: none;
   display: flex;
+  align-items: center;
 }
 </style>
