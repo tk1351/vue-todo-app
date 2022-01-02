@@ -1,21 +1,33 @@
 <template>
-  <input type="checkbox" v-bind:checked="checkCompleted()"/>
+  <input
+      type="checkbox"
+      v-bind:checked="checkCompleted()"
+      v-on:change="toggleTaskStatus(task.id)"
+  />
 </template>
 
 <script lang="ts">
 import {defineComponent, PropType} from "vue";
-import {TodoStatus} from "../../types/types";
+import {ITask} from "../../types/types";
+import {useTaskStore} from "../../store";
 
 export default defineComponent({
+  setup() {
+    const taskStore = useTaskStore()
+    return { taskStore }
+  },
   props: {
-    status: {
-      type: String as PropType<TodoStatus>,
+    task: {
+      type: Object as PropType<ITask>,
       required: true
     }
   },
   methods: {
     checkCompleted() {
-      return this.status === 'completed'
+      return this.task.done === false
+    },
+    toggleTaskStatus(id: number) {
+      this.taskStore.toggleTaskStatus(id)
     }
   }
 })

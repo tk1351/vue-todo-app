@@ -1,6 +1,6 @@
 <template>
   <li class="list">
-    <TodoCheckbox :status="task.status" />
+    <TodoCheckbox :task="task" />
     <TodoDetail :detail="task.title" />
   </li>
 </template>

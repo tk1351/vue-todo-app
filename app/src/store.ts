@@ -4,23 +4,8 @@ import { ITask } from './types/types'
 export const useTaskStore = defineStore('todo', {
     state: () => {
         return {
-            tasks: [
-                {
-                    id: 1,
-                    title: 'Do coding Vue.js',
-                    status: 'active'
-                },
-                {
-                    id: 2,
-                    title: 'Do coding React',
-                    status: 'completed'
-                },
-                {
-                    id: 3,
-                    title: 'Do coding Angular',
-                    status: 'completed'
-                },
-            ] as ITask[]
+            tasks: [] as ITask[],
+            nextId: 1
         }
     },
     getters: {
@@ -28,10 +13,31 @@ export const useTaskStore = defineStore('todo', {
             return state.tasks
         },
         activeTasks(state) {
-            return state.tasks.filter((task) => task.status === 'active')
+            return state.tasks.filter((task) => task.done === true)
         },
         completedTasks(state) {
-            return state. tasks.filter((task) => task.status === 'completed')
+            return state. tasks.filter((task) => task.done === false)
+        },
+        findTodo(state) {
+            return (id: number): ITask => {
+                const todo = state.tasks.find((task) => task.id === id)
+                if (!todo) throw new Error('todo not found')
+                return todo
+            }
+        }
+    },
+    actions: {
+        addTask(title: string) {
+            this.tasks.push({
+                id: this.nextId,
+                title,
+                done: true
+            })
+            this.nextId++
+        },
+        toggleTaskStatus(id: number) {
+            const todo = this.findTodo(id)
+            todo.done = !todo.done
         }
     }
 })

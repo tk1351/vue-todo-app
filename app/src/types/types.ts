@@ -1,10 +1,8 @@
 export interface ITask {
     id: number
     title: string
-    status: TodoStatus
+    done: boolean
 }
-
-export type TodoStatus = 'active' | 'completed'
 
 export type Tab = 'All' | 'Active' | 'Completed'
 

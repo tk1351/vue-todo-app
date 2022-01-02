@@ -7,6 +7,7 @@
         :task="task"
     />
   </ul>
+  <NoTasks v-if="!tasks.length" />
 </template>
 
 <script lang="ts">
@@ -14,11 +15,13 @@ import {defineComponent, PropType} from "vue";
 import {ITask} from "../../types/types";
 import TodoForm from "./TodoForm.vue";
 import TodoList from "./TodoList.vue";
+import NoTasks from "../atoms/NoTasks.vue";
 
 export default defineComponent({
   components: {
     TodoForm,
-    TodoList
+    TodoList,
+    NoTasks
   },
   props: {
     tasks: {
