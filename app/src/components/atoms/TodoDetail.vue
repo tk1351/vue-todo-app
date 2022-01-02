@@ -3,8 +3,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
-import {ITask} from "../../types/types";
+import {defineComponent} from "vue";
 import {useTaskStore} from "../../store";
 
 export default defineComponent({

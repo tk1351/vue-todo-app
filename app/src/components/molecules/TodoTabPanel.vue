@@ -58,8 +58,7 @@ export default defineComponent({
 
 <style scoped>
 .tabpanel {
-  min-height: calc(100vh - 20vh - 40px);
-  background-color: darkseagreen;
+  min-height: calc(100vh - 20vh - 55px);
 }
 
 [aria-hidden='true'] {

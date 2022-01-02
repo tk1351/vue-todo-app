@@ -9,7 +9,7 @@
         :index="index"
       />
     </div>
-    <div>
+    <div class="panel">
       <TodoTabPanel
         v-for="(tab, index) in tabs"
         :key="index"
@@ -55,5 +55,10 @@ export default defineComponent({
   justify-content: space-between;
   border-bottom: 1px solid;
   height: 40px;
+  padding: 0 20px;
+}
+
+.panel {
+  min-height: calc(100vh - 20vh - 55px);
 }
 </style>

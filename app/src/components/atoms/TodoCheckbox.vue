@@ -38,4 +38,9 @@ export default defineComponent({
 .checkbox {
   cursor: pointer;
 }
+
+input[type=checkbox] {
+  transform: scale(2);
+  margin: 0 20px 0 7px;
+}
 </style>

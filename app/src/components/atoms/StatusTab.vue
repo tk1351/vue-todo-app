@@ -53,6 +53,6 @@ export default defineComponent({
 }
 
 [aria-selected='true'] {
-  border-bottom: 1px solid dodgerblue;
+  border-bottom: 1px solid blue;
 }
 </style>

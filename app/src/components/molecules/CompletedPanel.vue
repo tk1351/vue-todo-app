@@ -42,12 +42,11 @@ export default defineComponent({
 
 <style scoped>
 .todo-list-wrapper {
-  margin: 0;
+  margin: 15px 0;
   padding-left: 0;
 }
 
 .list {
-  background-color: yellowgreen;
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -57,6 +56,7 @@ export default defineComponent({
 .list__task {
   display: flex;
   align-items: center;
+  height: 50px;
 }
 
 .delete-button-wrapper {

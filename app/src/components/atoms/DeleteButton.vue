@@ -30,11 +30,14 @@ export default defineComponent({
 <style scoped>
 .button--delete {
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: tomato;
   border: none;
   height: 55px;
+  width: 120px;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .material-icons-outlined {

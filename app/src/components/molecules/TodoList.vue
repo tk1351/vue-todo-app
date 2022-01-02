@@ -26,9 +26,9 @@ export default defineComponent({
 
 <style scoped>
 .list {
-  background-color: yellowgreen;
   list-style: none;
   display: flex;
   align-items: center;
+  height: 50px;
 }
 </style>

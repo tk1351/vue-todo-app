@@ -23,7 +23,6 @@ export default defineComponent({
 <style scoped>
 .contents-wrapper {
   min-height: calc(100vh - 20vh);
-  background-color: cadetblue;
   margin: 0 25%;
 }
 </style>

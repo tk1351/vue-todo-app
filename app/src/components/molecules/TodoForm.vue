@@ -27,7 +27,7 @@ export default defineComponent({
   },
   methods: {
     addTask() {
-      console.log('add', this.title)
+      if (!this.title.length) return
       this.taskStore.addTask(this.title)
       this.title = ''
     },
@@ -43,5 +43,6 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   height: 55px;
+  margin: 15px 0;
 }
 </style>
