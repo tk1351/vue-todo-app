@@ -11,6 +11,7 @@
 import {defineComponent, PropType} from "vue";
 import {useTaskStore} from "../../store";
 import {ITask} from "../../types/types";
+import {createConfirmMessage} from "../../lib/confirm";
 
 export default defineComponent({
   setup() {
@@ -25,8 +26,8 @@ export default defineComponent({
   },
   methods: {
     removeTask(id: number) {
-      const removeMessage = window.confirm(`${this.task.title}を削除しますか？`)
-      if (!removeMessage) return
+      const confirm = createConfirmMessage(`${this.task.title}を削除しますか？`)
+      if (!confirm) return
       this.taskStore.removeTask(id)
     }
   }

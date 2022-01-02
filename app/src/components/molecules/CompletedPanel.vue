@@ -2,15 +2,17 @@
   <ul class="todo-list-wrapper">
     <li class="list" v-for="task in tasks" :key="task.id">
       <div class="list__task">
-        {{ task.id }}
         <TodoCheckbox :task="task" />
-        <TodoDetail :detail="task.title" />
+        <TodoDetail :title="task.title" :id="task.id" />
       </div>
       <div>
         <DeleteIcon :task="task" />
       </div>
     </li>
   </ul>
+  <div class="delete-button-wrapper">
+    <DeleteButton v-if="tasks.length" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -20,9 +22,11 @@ import TodoList from "./TodoList.vue";
 import DeleteIcon from "../atoms/DeleteIcon.vue";
 import TodoDetail from "../atoms/TodoDetail.vue";
 import TodoCheckbox from "../atoms/TodoCheckbox.vue";
+import DeleteButton from "../atoms/DeleteButton.vue";
 
 export default defineComponent({
   components: {
+    DeleteButton,
     TodoCheckbox,
     TodoDetail,
     DeleteIcon,
@@ -53,5 +57,10 @@ export default defineComponent({
 .list__task {
   display: flex;
   align-items: center;
+}
+
+.delete-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <li class="list">
     <TodoCheckbox :task="task" />
-    <TodoDetail :detail="task.title" />
+    <TodoDetail :title="task.title" :id="task.id" />
   </li>
 </template>
 

@@ -43,6 +43,11 @@ export const useTaskStore = defineStore('todo', {
             this.tasks = this.tasks.filter((task) => {
                 return task.id !== id
             })
+        },
+        removeCompletedTasks() {
+            this.tasks = this.tasks.filter((task) => {
+                return task.done === false
+            })
         }
     }
 })
